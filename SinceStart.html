@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where We Started 💞</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff4141;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #timer {
+            background-color: #ff1515;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #ffffff; /* Reddish color */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #ffd8d8;
+        }
+
+        .time-value {
+            font-size: 24px;
+            color: #ffffff; /* Reddish color */
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .time-unit {
+            color: #ffffff;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+<div class="TimerDiv">
+    <div id="timer">
+        <h2>Where It All Started</h2>
+        <p><span class="time-value" id="years">0</span> <span class="time-unit">years</span></p>
+        <p><span class="time-value" id="months">0</span> <span class="time-unit">months</span></p>
+        <p><span class="time-value" id="weeks">0</span> <span class="time-unit">weeks</span></p>
+        <p><span class="time-value" id="days">0</span> <span class="time-unit">days</span></p>
+        <p><span class="time-value" id="hours">0</span> <span class="time-unit">hours</span></p>
+        <p><span class="time-value" id="minutes">0</span> <span class="time-unit">minutes</span></p>
+        <p><span class="time-value" id="seconds">0</span> <span class="time-unit">seconds</span></p>
+    </div>
+
+    <script>
+        // JavaScript logic to calculate and update time
+        function updateTime() {
+            const startDate = new Date('February 25, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeDifference = now - startDate;
+
+            const years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.4375));
+            const weeks = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30.4375)) / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('weeks').textContent = weeks;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+
+        // Initial call to display time immediately
+        updateTime();
+    </script>
+</div>
+</body>
+</html>
