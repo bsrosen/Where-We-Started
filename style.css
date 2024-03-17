@@ -1,41 +1,329 @@
-body {
-    font-family: Arial, sans-serif;
+
+@font-face {
+    font-family: ILoveYou;
+    src: url(assets/PencilpeteFont-2eE3.ttf);
+  }
+  @font-face {
+    font-family: ILoveYou2;
+    src: url(assets/LoveSign-WylWE.ttf);
+  }
+  
+  * {
+      margin:  0;
+  }
+  
+  html {
+    background-image: url(Images/grounder.jpg);
+    background-repeat: repeat;
+    overflow-y: scroll;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  @keyframes navbarthing {
+    0% {border-bottom: 10px solid rgb(129, 182, 255);}
+    25% {border-bottom: 10px solid rgb(105, 163, 255);}
+    50% {border-bottom: 10px solid rgb(52, 116, 255);}
+    75% {border-bottom: 10px solid rgb(47, 88, 254);}
+    100% {border-bottom: 10px solid rgb(49, 104, 255);}
+  }
+  .navBar {
     background-color: #ff4141;
-    margin: 0;
+    width: 100%;
+    height: 150px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    background-image: url('Images/blueBackground.jpg');
+    background-size: 500px;
+    background-repeat: repeat;
+    border-bottom: solid 10px white;
+    animation-name: navbarthing;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .title {
+    margin-left: 50px;
+    font-family: love;
+    font-size:xxx-large;
+    color: white;
+    font-family: ILoveYou2;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 
-#timer {
-    background-color: #ff1515;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+  .introHeader, .introImage {
+    flex:  1; 
+    margin:  10px;
+    font-family: Loveletter;
+    font-size: xx-large;
+    color: pink;
+    overflow-wrap: break-word;
+    height: fit-content;
+  }
+  
+  .navThings {
+    font-family: love;
+    font-size:xxx-large;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #5f6aff;
+    border-radius: 20px 20px 20px 20px;
+    border: solid 5px white;
+    width: fit-content;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  @keyframes texting {
+    0% {border: dashed 10px rgb(0, 0, 0);}
+    50% {border: solid 10px rgb(255, 101, 101);}
+    100% {border: dashed 10px rgb(107, 206, 255);}
+  }
+  .Text {
+    width: 40%;
+    padding: 10px;
+    background-image: url(assets/notes.jpg);
+    background-size: cover;
+    margin: 10px;
+    border: dashed 10px rgb(0, 0, 0);
+  }
+  .Text:hover {
+    animation-name: texting;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  P {
+    margin: 10px;
+    color: #000000;
+    font-size: 30px;
+    font-family: ILoveYou;
+    font-weight: bolder;
+  }
+  .navs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 10px;
+    gap: 25px;
+  }
 
-h2 {
-    font-size: 32px;
-    color: #ffffff; /* Reddish color */
+  .navs2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 10px;
     margin-bottom: 20px;
+    gap: 25px;
+  }
+
+  .navThings:hover {
+    animation-name: border;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes border {
+    0% {border: 5px solid white;}
+    25% {border: 5px solid rgb(154, 159, 255);}
+    50% {border: 5px dashed rgb(154, 159, 255);}
+    75% {border: 5px dashed rgb(255, 255, 255);}
+    100% {border: 5px solid rgb(255, 255, 255);}
+  }
+@keyframes love {
+  0% {
+    color: white;
+  }
+  100% {
+    color: rgb(133, 99, 255);
+  }
 }
 
-p {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #ffd8d8;
+  .title:hover {
+    animation-name: love;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  .ExtSite {
+    margin-left: 50px;
+    font-size:xxx-large;
+    color: white;
+    font-family: ILoveYou;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
-.time-value {
-    font-size: 24px;
-    color: #ffffff; /* Reddish color */
-    font-weight: bold;
-    margin: 5px;
+* {
+  box-sizing: border-box;
 }
-
-.time-unit {
-    color: #ffffff;
-    font-weight: normal;
+body {
+  margin: 5px;
+  position: relative;
+}
+#gallery {
+  display: grid;
+  height: calc(100vh - 10px);
+  grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+  grid-gap: 0.5em;
+}
+@media (max-width: 800px) {
+  #gallery {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+ }
+  #gallery > div {
+    width: 48%;
+    margin: 1%;
+ }
+}
+@media (max-width: 800px) and (max-width: 350px) {
+  #gallery > div {
+    width: 98%;
+    font-size: 1em;
+ }
+}
+#gallery > div:nth-child(6n + 1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+#gallery > div:nth-child(2) {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+#gallery > div:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+#gallery > div > a {
+  opacity: 0;
+  position: absolute;
+  color: #ffffff;
+  font: bold 4em "ILoveYou2";
+  padding: 2rem;
+  width: fit-content;
+  height: fit-content;
+  transition: all ease 1s;
+  -webkit-text-stroke: 2px lightsalmon;
+}
+#gallery > div > img {
+  width: 100%;
+  min-height: 100%;
+  transition: all ease 1s;
+}
+#gallery > div:hover img {
+  filter: blur(4px);
+}
+#gallery > div:hover a {
+  opacity: 1;
+}
+#gallery > div {
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#gallery div, #gallery a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+[id^="lightbox-"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  opacity: 0;
+  transition: opacity 450ms ease-in-out;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+[id^="lightbox-"]:target {
+  opacity: 1;
+  pointer-events: inherit;
+}
+[id^="lightbox-"]:target img {
+  filter: blur(0);
+}
+[id^="lightbox-"] .content {
+  max-width: 90%;
+  position: relative;
+  color: #fff;
+}
+[id^="lightbox-"] .content:hover > a.close {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+[id^="lightbox-"] .content:hover > .titlex {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+[id^="lightbox-"] .content:hover > .titlex::after {
+  opacity: 1;
+}
+[id^="lightbox-"] .content > * {
+  transition: all 450ms ease-in-out;
+}
+[id^="lightbox-"] .titlex {
+  display: block;
+  margin: 0;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(50%);
+  font-size: 80%;
+  opacity: 0;
+}
+[id^="lightbox-"] .titlex::after {
+  content: ' ';
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 350ms ease-in-out 250ms;
+  opacity: 0;
+  transform-origin: bottom;
+  mix-blend-mode: soft-light;
+}
+[id^="lightbox-"] img {
+  max-height: 90vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  filter: blur(50px);
+}
+[id^="lightbox-"] a.close {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0, 0);
+  opacity: 0;
+  transform-origin: right top;
+  text-decoration: none;
+  color: #fff;
+}
+[id^="lightbox-"] a.close::after {
+  content: "X";
 }
